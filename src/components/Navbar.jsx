@@ -7,13 +7,12 @@ export const Navbar = () => {
   const [usename, setUsename] = useState(getUser());
 
 
-  const [valueFav, setValueFav] = useState(JSON.parse(localStorage.getItem('favorites')).length || 0);
+  const [valueFav, setValueFav] = useState(JSON.parse(localStorage.getItem('favorites'))?.length || 0);
 
   useEffect(() => {
     const handleStorageChange = (event) => {
-      console.log('me ejecuto');
       if (event.key === 'favorites') {
-        setValueFav(event.newValue.length);
+        setValueFav(event?.newValue?.length);
       }
 
     };
